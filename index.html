@@ -402,6 +402,22 @@
           transition: none;
         }
       }
+
+      /* Contact Info responsive layout */
+      @media (max-width: 900px) {
+        .contact-info {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .contact-info .col-six {
+          width: 100% !important;
+          flex: 1 1 100%;
+        }
+        .contact-info iframe {
+          height: 360px;
+        }
+      }
     </style>
   </head>
 
