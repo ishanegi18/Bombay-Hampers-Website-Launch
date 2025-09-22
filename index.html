@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bombay Hampers</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Google Fonts: Great Vibes -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Gift Loader Animation */
+      .gift-loader {
+        font-size: 64px;
+        color: #af8400;
+        display: block;
+        margin: 0 auto;
+        animation: gift-bounce 1.2s infinite ease-in-out;
+      }
+      @keyframes gift-bounce {
+        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+        50% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+      }
+      /* ===== Services: floating gifting icons in background ===== */
+      #services { position: relative; }
+      #services .services-floaters {
+        position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        overflow: hidden;
+      }
+      #services .services-floater {
+        position: absolute; color: rgba(175,132,0,0.25); /* af8400 slightly translucent */
+        font-size: 26px; line-height: 1; filter: blur(0.1px);
+        animation: services-drift 18s linear infinite;
+      }
+      #services .services-floater:nth-child(1){ left: 8%;  top: 20%; font-size: 28px; animation-duration: 16s; animation-delay: 0s; }
+      #services .services-floater:nth-child(2){ left: 22%; top: 70%; font-size: 32px; animation-duration: 19s; animation-delay: 1s; }
+      #services .services-floater:nth-child(3){ left: 36%; top: 35%; font-size: 24px; animation-duration: 17s; animation-delay: 2s; }
+      #services .services-floater:nth-child(4){ left: 52%; top: 75%; font-size: 34px; animation-duration: 18s; animation-delay: .5s; }
+      #services .services-floater:nth-child(5){ left: 66%; top: 28%; font-size: 30px; animation-duration: 20s; animation-delay: 1.5s; }
+      #services .services-floater:nth-child(6){ left: 80%; top: 65%; font-size: 26px; animation-duration: 15s; animation-delay: 2.5s; }
+
+      @keyframes services-drift {
+        0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: .85; }
+        25%  { transform: translateY(-14px) translateX(6px) rotate(8deg);  opacity: .9; }
+        50%  { transform: translateY(-28px) translateX(-6px) rotate(0deg); opacity: .85; }
+        75%  { transform: translateY(-14px) translateX(8px) rotate(-7deg); opacity: .9; }
+        100% { transform: translateY(0) translateX(0) rotate(0deg);   opacity: .85; }
+      }
+
+      #services > *:not(.services-floaters) { position: relative; z-index: 1; }
+
+      @media (prefers-reduced-motion: reduce) {
+        #services .services-floater { animation: none; }
+      }
+      /* ===== About: floating gifting icons in background ===== */
+      #about { position: relative; }
+      #about .about-floaters {
+        position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        overflow: hidden; /* hide off‑screen travel */
+      }
+      #about .about-floater {
+        position: absolute; color: rgba(175,132,0,0.18); /* #AF8400 @ 18% */
+        font-size: 28px; line-height: 1; filter: blur(0.15px);
+        animation: gift-drift 14s linear infinite;
+      }
+      /* Slight variation in size/speed/delay per icon */
+      #about .about-floater:nth-child(1){ left: 5%;  top: 65%; font-size: 28px; animation-duration: 16s; animation-delay: 0s; }
+      #about .about-floater:nth-child(2){ left: 18%; top: 10%; font-size: 34px; animation-duration: 18s; animation-delay: 1s; }
+      #about .about-floater:nth-child(3){ left: 32%; top: 70%; font-size: 26px; animation-duration: 15s; animation-delay: 2s; }
+      #about .about-floater:nth-child(4){ left: 46%; top: 18%; font-size: 30px; animation-duration: 17s; animation-delay: .5s; }
+      #about .about-floater:nth-child(5){ left: 60%; top: 72%; font-size: 36px; animation-duration: 19s; animation-delay: 1.5s; }
+      #about .about-floater:nth-child(6){ left: 72%; top: 22%; font-size: 24px; animation-duration: 16s; animation-delay: 2.5s; }
+      #about .about-floater:nth-child(7){ left: 84%; top: 68%; font-size: 32px; animation-duration: 20s; animation-delay: .8s; }
+      #about .about-floater:nth-child(8){ left: 12%; top: 40%; font-size: 22px; animation-duration: 14s; animation-delay: 1.2s; }
+      #about .about-floater:nth-child(9){ left: 38%; top: 48%; font-size: 28px; animation-duration: 18s; animation-delay: 2.2s; }
+      #about .about-floater:nth-child(10){ left: 78%; top: 42%; font-size: 26px; animation-duration: 15s; animation-delay: .3s; }
+
+      @keyframes gift-drift {
+        0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: .85; }
+        25%  { transform: translateY(-12px) translateX(6px) rotate(7deg);  opacity: .9; }
+        50%  { transform: translateY(-24px) translateX(-6px) rotate(0deg); opacity: .85; }
+        75%  { transform: translateY(-12px) translateX(8px) rotate(-6deg); opacity: .9; }
+        100% { transform: translateY(0) translateX(0) rotate(0deg);   opacity: .85; }
+      }
+
+      /* Keep real content above the floaters */
+      #about > *:not(.about-floaters) { position: relative; z-index: 1; }
+
+      /* Reduce motion accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        #about .about-floater { animation: none; }
+      }
+      .title_heading {
+        font-family: "Italianno", cursive !important;
+        color: #af8400 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.2px !important;
+        text-transform: none !important;
+        font-size: 6rem !important;
+      }
+
+      /* Typewriter caret */
+      .subhead.typewriter::after {
+        content: "|";
+        display: inline-block;
+        margin-left: 4px;
+        opacity: 1;
+        animation: caretBlink 1s steps(1, end) infinite;
+      }
+      @keyframes caretBlink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .subhead.typewriter::after {
+          animation: none;
+        }
+      }
+
+      /* Masonry: 3-column grid with responsive fallbacks */
+      .masonry {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      @media (max-width: 900px) {
+        .masonry {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .title_heading {
+          margin-top: 35% !important;
+          font-size: 3.9rem !important;
+        }
+
+        .masonry {
+          grid-template-columns: 1fr;
+        }
+      }
+      .masonry__brick {
+        margin: 0; /* override template margins */
+      }
+      .masonry__brick .item-folio {
+        width: 100%;
+        display: block;
+      }
+      .masonry__brick img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* About read-more collapse */
+      .about-more {
+        display: block; /* allow height transition */
+        max-height: 0; /* collapsed */
+        overflow: hidden; /* hide content while collapsed */
+        opacity: 0; /* fade */
+        transition: max-height 1s ease, opacity 1s ease;
+      }
+      .about-expanded .about-more {
+        max-height: 1200px; /* big enough for the content */
+        opacity: 1;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .about-more {
+          transition: none;
+        }
+      }
+      /* Services: card flex layout */
+      #services .services-list {
+        display: flex; /* switch to flex layout */
+        flex-wrap: wrap; /* allow wrapping */
+        gap: 20px; /* spacing between cards */
+        align-items: stretch; /* make equal height rows */
+      }
+      #services .services-list > .service-item {
+        flex: 1 1 220px; /* responsive width (min ~220px) */
+        max-width: 100%; /* prevent overflow */
+      }
+      @media (min-width: 1200px) {
+        #services .services-list {
+          gap: 20px;
+        }
+      }
+      #services .service-item {
+        background: #af8400; /* card bg */
+        color: #fff; /* text color */
+        border-radius: 12px;
+        padding: 16px 14px;
+        display: flex;
+        align-items: center; /* keep text from being vertically stretched */
+        gap: 12px;
+        min-height: 80px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        flex-wrap: nowrap; /* prevent awkward wrapping around icon */
+      }
+      #services .service-item:hover,
+      #services .service-item:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+      }
+      #services .service-icon {
+        flex: 0 0 auto;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.18);
+      }
+      #services .service-icon i {
+        color: #fff;
+        font-size: 20px;
+        line-height: 1;
+      }
+      #services .service-text {
+        margin: 0;
+        flex: 1 1 auto; /* let text take remaining space */
+        min-width: 0; /* enable text wrapping in flex items */
+      }
+      #services .service-text .h2 {
+        margin: 0;
+        font-size: 5rem; /* responsive size */
+        line-height: 1.3;
+        letter-spacing: 0.2px;
+        color: #fff;
+        font-weight: 600;
+        word-break: break-word;
+        hyphens: auto; /* help long words fit */
+      }
+      @media (min-width: 1200px) {
+        #services .services-list {
+          gap: 21px;
+        }
+        #services .service-text .h2 {
+          font-size: 1.6rem;
+        }
+      }
+      @media (max-width: 480px) {
+        #services .service-item {
+          padding: 14px 12px;
+          gap: 10px;
+        }
+        #services .service-icon {
+          width: 32px;
+          height: 32px;
+        }
+        #services .service-text .h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* ===== Testimonials: Split layout (text + image carousel) ===== */
+      #clients .testi-split {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr; /* left text a bit wider */
+        gap: 28px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        #clients .testi-split {
+          grid-template-columns: 1fr;
+        }
+      }
+      #clients .testi-text {
+        background: #ffffff;
+        color: #000;
+        border-radius: 12px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        padding: 24px 22px;
+      }
+      #clients .testi-text h3 {
+        margin: 0 0 8px;
+        font-size: 1.5rem;
+      }
+      #clients .testi-text p {
+        margin: 0 0 12px;
+        line-height: 1.65;
+      }
+      #clients .testi-text .points {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+      }
+      #clients .testi-text .points li {
+        margin: 6px 0;
+      }
+
+      /* Carousel */
+      #clients .testi-carousel {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+      }
+      #clients .testi-carousel .slides {
+        position: relative;
+        width: 100%;
+        height: 440px;
+      }
+      #clients .testi-carousel .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+      }
+      #clients .testi-carousel .slide.is-active {
+        opacity: 1;
+      }
+      #clients .testi-carousel img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Carousel controls */
+      #clients .testi-nav {
+        position: absolute;
+        inset: auto 0 12px 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 2;
+      }
+      #clients .testi-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+      }
+      #clients .testi-dot.is-active {
+        background: #af8400;
+        border-color: rgba(0, 0, 0, 0.25);
+      }
+      #clients .testi-arrows {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 2;
+        padding: 0 10px;
+        pointer-events: none;
+      }
+      #clients .testi-arrow {
+        pointer-events: auto;
+        width: 30px;
+        height: 60px;
+        border-radius: 50%;
+        background: #af8400;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+      }
+      #clients .testi-arrow:focus {
+        outline: 2px solid #af8400;
+        outline-offset: 2px;
+      }
+
+      @media (max-width: 600px) {
+        #clients .testi-carousel .slides {
+          height: 320px;
+        }
+      }
+
+      /* Reduced motion respect */
+      @media (prefers-reduced-motion: reduce) {
+        #clients .testi-carousel .slide {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+      <div class="header-logo">
+        <a class="site-logo" href="index.html">
+          <img src="assets/Logo/logo_shiny.png" alt="Homepage" />
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <a href="#0" class="header-nav__close" title="close"
+          ><span>Close</span></a
+        >
+
+        <div class="header-nav__content">
+         <a class="site-logo" href="index.html">
+          <img src="assets/Logo/logo_shiny.png" alt="Homepage" />
+        </a>
+
+          <ul class="header-nav__list">
+            <li class="current">
+              <a class="smoothscroll" href="#home" title="home">Home</a>
+            </li>
+            <li>
+              <a class="smoothscroll" href="#about" title="about">About</a>
+            </li>
+            <li>
+              <a class="smoothscroll" href="#services" title="services"
+                >What we do</a
+              >
+            </li>
+            <!-- <li><a class="smoothscroll"  href="#works" title="works">Works</a></li> -->
+            <li>
+              <a class="smoothscroll" href="#clients" title="clients"
+                >Clients</a
+              >
+            </li>
+            <li>
+              <a class="smoothscroll" href="#contact" title="contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+
+          <p>
+           Bombay Hampers crafts personalised, premium gift hampers—thoughtfully curated, beautifully packaged, and delivered across India & worldwide.
+          </p>
+
+          <ul class="header-nav__social">
+            <li>
+              <a
+                href="https://www.facebook.com/share/17D5HkZnkh/?mibextid=wwXIfr"
+                target="_blank"
+                ><i class="fa fa-facebook"></i
+              ></a>
+            </li>
+            <!-- <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li> -->
+            <li>
+              <a
+                href="https://www.instagram.com/bombayhampers?igsh=MXFpMnY0MHdpa3Jwcg"
+                target="_blank"
+              >
+                <i class="fa fa-instagram"></i
+              ></a>
+            </li>
+
+            <li>
+              <a
+                href="https://wa.me/+919082102206"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end header-nav__content -->
+      </nav>
+      <!-- end header-nav -->
+
+      <a class="header-menu-toggle" href="#0">
+        <span class="header-menu-text">Menu</span>
+        <span class="header-menu-icon"></span>
+      </a>
+    </header>
+    <!-- end s-header -->
+
+    <!-- home
+    ================================================== -->
+    <section
+      id="home"
+      class="s-home target-section"
+      style="
+        background-image: url('assets/gallery/bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <div class="overlay"></div>
+      <div class="shadow-overlay"></div>
+
+      <div class="home-content">
+        <div class="row home-content__main">
+          <h3 class="subhead subhead--dark title_heading">
+            Unwrap Bombay Hampers
+          </h3>
+
+          <h1>
+            You imagine it,<br />
+            We curate it.<br />
+            Custom hampers for every event.
+          </h1>
+
+          <div class="home-content__buttons">
+            <a href="#about" class="smoothscroll btn btn--stroke"
+              >More About Us</a
+            >
+            <a
+              href="#works"
+              class="smoothscroll btn btn--stroke"
+              aria-label="Shop curated hampers"
+              >Browse Hampers</a
+            >
+          </div>
+        </div>
+
+        <div class="home-content__scroll">
+          <a href="#about" class="scroll-link smoothscroll">
+            <span>Scroll Down</span>
+          </a>
+        </div>
+
+        <div class="home-content__line"></div>
+      </div>
+      <!-- end home-content -->
+
+      <ul class="home-social">
+        <li>
+          <a
+            href="https://www.facebook.com/share/17D5HkZnkh/?mibextid=wwXIfr"
+            target="_blank"
+            ><i class="fa fa-facebook"></i
+          ></a>
+        </li>
+        <!-- <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li> -->
+        <li>
+          <a
+            href="https://www.instagram.com/bombayhampers?igsh=MXFpMnY0MHdpa3Jwcg"
+            target="_blank"
+          >
+            <i class="fa fa-instagram"></i
+          ></a>
+        </li>
+
+        <li>
+          <a href="https://wa.me/+919082102206" target="_blank" rel="noopener">
+            <i class="fa fa-whatsapp"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- end home-social -->
+    </section>
+    <!-- end s-home -->
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about">
+      <div class="about-floaters" aria-hidden="true">
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+        <i class="about-floater icon-gift"></i>
+      </div>
+      <div class="row section-header has-bottom-sep" data-aos="fade-up">
+        <div class="col-full">
+          <!-- <img src="assets/Logo/logo.png" alt="Bombay Hampers logo" style="display:block; margin:0 auto; max-width:200px; height:auto;" /> -->
+          <h1
+            class="subhead subhead--dark"
+            style="
+              font-family: 'Italianno', cursive;
+              color: #af8400;
+              font-weight: 100;
+              letter-spacing: 0.2px;
+            "
+          >
+            Crafting moments, one hamper at a time.
+          </h1>
+          <h3 class="display-2 display-2--dark" style="font-size: 3rem">
+            Who Are We
+          </h3>
+        </div>
+      </div>
+      <!-- end section-header -->
+
+      <div class="row about-desc about-split" data-aos="fade-up">
+        <div class="col-full tab-full">
+          <img
+            src="assets/Event/event4.JPG"
+            alt="Curated Bombay Hampers showcase"
+            style="
+              width: 100%;
+              height: 400px;
+              border-radius: 8px;
+              box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+              object-fit: cover;
+              object-position: top;
+            "
+          />
+        </div>
+        <div class="col-full tab-full">
+          <p style="text-align: left">
+            <b>Bombay Hampers</b> was inspired by a legacy that began in 1981
+            with a family store filled with fragrant spices and warm customer
+            connections. Growing up in that environment,
+            <b>founder Kevin C. Furia </b>learned the value of thoughtful
+            details and genuine relationships. Carrying this forward, he
+            envisioned a way to turn simple gestures into memorable experiences.
+
+            <span id="about-more" class="about-more"
+              >In 2022, that vision became Bombay Hampers - a brand rooted in
+              Mumbai’s warmth, resilience, and endless creativity.
+              <b>Each hamper is more than a collection of products</b>, it’s a
+              story carefully curated to reflect your occasion, values, and
+              personality. From corporate branding and festive celebrations to
+              intimate milestones, we design and deliver hampers that delight,
+              connect, and leave a lasting impression. Our differentiators lie
+              in <b>custom branding, premium packaging design</b>, and
+              <b>end-to-end service—from concept </b>and curation to nationwide
+              and international delivery. With every box, we combine trusted
+              quality, local craftsmanship, and seamless service—helping you
+              celebrate life’s moments with care and meaning. <br /><br /><b
+                ><i> - One hamper, many smiles.</i></b
+              ></span
+            >
+          </p>
+          <div
+            class="about-toggle-wrap"
+            style="text-align: center; margin-top: 12px"
+          >
+            <button
+              id="about-toggle"
+              class="btn btn--stroke"
+              type="button"
+              aria-expanded="false"
+              aria-controls="about-more"
+            >
+              Read more
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- end about-desc -->
+
+      <div
+        class="row about-stats stats block-1-3 block-m-1-2 block-mob-full"
+        data-aos="fade-up"
+      >
+        <div class="col-block stats__col">
+          <div class="stats__count">1000</div>
+          <h5>Memories Created</h5>
+        </div>
+        <div class="col-block stats__col">
+          <div class="stats__count">50</div>
+          <h5>Hampers Delivered</h5>
+        </div>
+
+        <div class="col-block stats__col">
+          <div class="stats__count">100</div>
+          <h5>Happy Clients</h5>
+        </div>
+      </div>
+      <!-- end about-stats -->
+
+      <div class="about__line"></div>
+    </section>
+    <!-- end s-about -->
+
+    <!-- services
+    ================================================== -->
+    <section id="services" class="s-services">
+      <div class="services-floaters" aria-hidden="true">
+        <i class="services-floater icon-gift"></i>
+        <i class="services-floater icon-gift"></i>
+        <i class="services-floater icon-gift"></i>
+        <i class="services-floater icon-gift"></i>
+        <i class="services-floater icon-gift"></i>
+        <i class="services-floater icon-gift"></i>
+      </div>
+      <div class="row section-header has-bottom-sep" data-aos="fade-up">
+        <div class="col-full">
+          <h1
+            class="subhead subhead--dark"
+            style="
+              font-family: 'Italianno', cursive;
+              color: #af8400;
+              font-weight: 100;
+              letter-spacing: 0.2px;
+            "
+          >
+            What we do
+          </h1>
+
+          <p style="text-align: center">
+            <b>Bombay Hampers</b> helps you
+            <b>connect, celebrate, and strengthen relationships</b>.<br />
+            Each <b>custom hamper</b> is <b>carefully curated</b> and finished
+            with <b>premium packaging</b>.<br />
+            From our <b>Gift Concierge</b> and <b>same‑day Mumbai</b> delivery
+            to <b>pan‑India & international</b> shipping, we ensure your
+            sentiments <b>arrive beautifully</b>.
+          </p>
+        </div>
+      </div>
+      <!-- end section-header -->
+
+      <div class="row services-list block-1-2 block-tab-full">
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">All Day Hampers</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">⁠Festive Hampers</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">Wedding Hampers</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">Kids Hampers</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">Corporate Hampers</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text">
+            <h3 class="h2">Brands & PR Hampers</h3>
+          </div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text">
+            <h3 class="h2">⁠Custom-made Hampers</h3>
+          </div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text"><h3 class="h2">⁠Gourmet Gifting</h3></div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text">
+            <h3 class="h2">⁠⁠Luxury Lifestyle Accessories</h3>
+          </div>
+        </div>
+        <div class="col-block service-item" data-aos="fade-up">
+          <div class="service-icon"><i class="icon-gift"></i></div>
+          <div class="service-text">
+            <h3 class="h2">⁠⁠Personal Gift Concierge</h3>
+          </div>
+        </div>
+      </div>
+      <!-- end services-list -->
+    </section>
+    <!-- end s-services -->
+
+    <!-- Why us section
+    ================================================== -->
+    <section id="about" class="s-about">
+      <div class="row section-header has-bottom-sep" data-aos="fade-up">
+        <div class="col-full">
+          <!-- <img src="assets/Logo/logo.png" alt="Bombay Hampers logo" style="display:block; margin:0 auto; max-width:200px; height:auto;" /> -->
+          <h1
+            class="subhead subhead--dark"
+            style="
+              font-family: 'Italianno', cursive;
+              color: #af8400;
+              font-weight: 100;
+              letter-spacing: 0.2px;
+            "
+          >
+            More than hampers, we craft connections.
+          </h1>
+          <h3 class="display-2 display-2--dark" style="font-size: 3rem">
+            Why Bombay Hampers?
+          </h3>
+        </div>
+      </div>
+      <!-- end section-header -->
+
+      <div class="row about-desc about-split" data-aos="fade-up">
+        <div class="col-six tab-full">
+          <img
+            src="assets/IMG_3081.JPG"
+            alt="Curated Bombay Hampers showcase"
+            style="
+              width: 100%;
+              height: 600px;
+              border-radius: 8px;
+              box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+              object-fit: cover;
+              object-position: bottom;
+            "
+          />
+        </div>
+        <div class="col-six tab-full">
+          <p style="text-align: left">
+            At <b>Bombay Hampers</b>, our difference lies in the way we truly
+            listen. We treat every
+            <b>client with the highest respect,valuing their ideas, </b>and
+            vision as the foundation of what <b>we create together.</b><br />
+            We don’t just make hampers; we help you bring your story to life
+            through thoughtful concepts, innovative product choices, and elegant
+            curations. By collaborating closely,
+            <b>we ensure each hamper is a reflection of your unique style</b>
+            and purpose—setting your gifts apart with creativity and class that
+            truly resonates.
+          </p>
+        </div>
+      </div>
+
+      <!-- end why us-desc -->
+
+      <div class="about__line"></div>
+    </section>
+    <!-- end why us section -->
+
+    <!-- works
+    ================================================== -->
+    <section id="works" class="s-works">
+      <div class="intro-wrap">
+        <div
+          class="row section-header has-bottom-sep light-sep"
+          data-aos="fade-up"
+        >
+          <div class="col-full">
+            <h1
+              class="subhead subhead--dark"
+              style="
+                font-family: 'Italianno', cursive;
+                color: #af8400;
+                font-weight: 100;
+                letter-spacing: 0.2px;
+              "
+            >
+              Celebrations We’ve Been Part Of
+            </h1>
+            <h3 class="display-2 display-2--dark" style="font-size: 3rem">
+              Our Collaboration
+            </h3>
+          </div>
+        </div>
+        <!-- end section-header -->
+      </div>
+      <!-- end intro-wrap -->
+
+      <div class="row works-content">
+        <div class="col-full masonry-wrap">
+          <div class="masonry">
+            <div class="masonry__brick" data-aos="fade-up">
+              <div class="item-folio">
+                <div class="item-folio__thumb">
+                  <a
+                    href="assets/IMG_6682.JPG"
+                    class="thumb-link"
+                    title="event1"
+                    data-size="1050x700"
+                  >
+                    <img
+                      href="assets/IMG_6682.JPG"
+                      srcset="assets/IMG_6682.JPG"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+               
+
+              </div>
+            </div>
+            <!-- end masonry__brick -->
+
+            <div class="masonry__brick" data-aos="fade-up">
+              <div class="item-folio">
+                <div class="item-folio__thumb">
+                  <a
+                    href="assets/Event/event3.JPG"
+                    class="thumb-link"
+                    title="Woodcraft"
+                    data-size="1050x700"
+                  >
+                    <img
+                      src="assets/Event/event3.JPG"
+                      srcset="assets/Event/event3.JPG"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+               
+
+                <a
+                  href="https://www.behance.net/"
+                  class="item-folio__project-link"
+                  title="Project link"
+                >
+                  <i class="icon-link"></i>
+                </a>
+
+                
+              </div>
+            </div>
+            <!-- end masonry__brick -->
+
+            <div class="masonry__brick" data-aos="fade-up">
+              <div class="item-folio">
+                <div class="item-folio__thumb">
+                  <a
+                    href="assets/IMG_3349.JPG"
+                    class="thumb-link"
+                    title="The Beetle Car"
+                    data-size="1050x700"
+                  >
+                    <img
+                      src="assets/IMG_3349.JPG"
+                      srcset="assets/IMG_3349.JPG"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                
+
+                <a
+                  href="https://www.behance.net/"
+                  class="item-folio__project-link"
+                  title="Project link"
+                >
+                  <i class="icon-link"></i>
+                </a>
+
+              </div>
+            </div>
+            <!-- end masonry__brick -->
+
+            <div class="masonry__brick" data-aos="fade-up">
+              <div class="item-folio">
+                <div class="item-folio__thumb">
+                  <a
+                    href="assets/IMG_0023.jpg"
+                    class="thumb-link"
+                    title="Grow Green"
+                    data-size="1050x700"
+                  >
+                    <img
+                      src="assets/IMG_0023.jpg"
+                      srcset="assets/IMG_0023.jpg"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+               
+
+                <a
+                  href="https://www.behance.net/"
+                  class="item-folio__project-link"
+                  title="Project link"
+                >
+                  <i class="icon-link"></i>
+                </a>
+
+                
+              </div>
+            </div>
+            <!-- end masonry__brick -->
+
+            <div class="masonry__brick" data-aos="fade-up">
+              <div class="item-folio">
+                <div class="item-folio__thumb">
+                  <a
+                    href="assets/Event/event.png"
+                    class="thumb-link"
+                    title="Guitarist"
+                    data-size="1050x700"
+                  >
+                    <img
+                      src="assets/Event/event.png"
+                      srcset="assets/Event/event.png"
+                      alt=""
+                    />
+                  </a>
+                </div>
+
+                
+
+                <a
+                  href="https://www.behance.net/"
+                  class="item-folio__project-link"
+                  title="Project link"
+                >
+                  <i class="icon-link"></i>
+                </a>
+
+               
+              </div>
+            </div>
+            <!-- end masonry__brick -->
+          </div>
+          <!-- end masonry -->
+        </div>
+        <!-- end col-full -->
+      </div>
+      <!-- end works-content -->
+    </section>
+    <!-- end s-works -->
+
+    <!-- clients
+    ================================================== -->
+    <section id="clients" class="s-clients">
+      <div class="row section-header" data-aos="fade-up">
+        <div class="col-full">
+          <h1
+            class="subhead subhead--dark"
+            style="
+              font-family: 'Italianno', cursive;
+              color: #af8400;
+              font-weight: 100;
+              letter-spacing: 0.2px;
+            "
+          >
+            Partnerships that speak volumes.
+          </h1>
+          <h3
+            class="display-2 display-2--dark"
+            style="font-size: 3rem; color: #fff"
+          >
+            Clientele & Partnerships
+          </h3>
+        </div>
+      </div>
+      <!-- end section-header -->
+
+      <div class="row clients-testimonials" data-aos="fade-up">
+        <div class="testi-split">
+          <!-- Left: text content -->
+          <div class="testi-text">
+            <h3>Trusted by icons. Chosen by brands.</h3>
+            <p>
+              With gratitude and humility, Bombay Hampers has grown from a
+              simple idea into a cherished experience of thoughtful giving.
+              We’ve had the joy of adding a little extra care to moments for
+              Bollywood favourites like <b>Kareena Kapoor</b>,
+              <b>Ayushmann Khurrana</b>, <b>Jeetendra Kapoor</b> and
+              <b>Shilpa Shetty</b>.
+            </p>
+            <p>
+              Over the years, we’ve partnered with
+              <b>1500+ families, brands & corporates</b>—including
+              <b>Kalki Fashion</b>, <b>Alpino</b>, <b>HDFC ERGO</b>,
+              <b>Party Smart India</b>, <b>Foundever</b>, <b>Global Indulge</b>,
+              <b>Quintessentially</b>, <b>East Vantage</b> and
+              <b>NMIMS Law School</b>—building relationships on respect, trust
+              and shared vision. We also welcome foreign delegates from the
+              <b>UK, Canada, USA, Japan, Malaysia</b> and the
+              <b>Philippines</b>, crafting hampers that celebrate India’s warmth
+              and culture.
+            </p>
+            <p>
+              We’re honoured to be a gifting partner at the world’s grandest
+              Garba festival with <b>Falguni Pathak</b>. Through every
+              collaboration, our promise remains the same: gifts that
+              <b>touch hearts</b>, <b>build connections</b> and
+              <b>leave lasting memories</b>.
+            </p>
+          </div>
+
+          <!-- Right: image carousel -->
+          <div class="testi-carousel" aria-label="Client gallery" role="region">
+            <div class="slides">
+              <figure class="slide is-active">
+                <img
+                  src="assets/colabs/alpino.JPG"
+                  alt="Curated hamper display with premium packaging"
+                />
+              </figure>
+             
+              <figure class="slide">
+                <img
+                  src="assets/colabs/kalki.PNG"
+                  alt="Event gifting table with Bombay Hampers"
+                />
+              </figure>
+               
+            </div>
+            <div class="testi-arrows">
+              <button class="testi-arrow prev" aria-label="Previous image">
+                &#10094;
+              </button>
+              <button class="testi-arrow next" aria-label="Next image">
+                &#10095;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end client-testimonials -->
+    </section>
+    <!-- end s-clients -->
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact">
+      <div class="overlay"></div>
+      <div class="contact__line"></div>
+
+      <div class="row section-header" data-aos="fade-up">
+        <div class="col-full">
+ <h1
+            class="subhead subhead--dark"
+            style="
+              font-family: 'Italianno', cursive;
+              color: #af8400;
+              font-weight: 100;
+              letter-spacing: 0.2px;
+            "
+          >
+            Ready to create a gift that leaves an impression?
+          </h1>
+          <h3
+            class="display-2 display-2--dark"
+            style="font-size: 3rem; color: #103138"
+          >
+            Contact Us
+          </h3>
+
+
+
+         
+        </div>
+      </div>
+
+      <div class="row contact-content" data-aos="fade-up">
+        <div class="contact-secondary">
+          <div class="contact-info">
+            <h3 class="h3 hide-on-fullwidth">Contact Info</h3>
+               <div class="col-six">
+  <div class="cinfo">
+              <h5>Where to Find Us</h5>
+              <p>
+                Bombay Hampers, Ground level, Shop number 3, <br />
+                Shiv Krupa CHS, S.V.P Road, <br />
+                Kandivali (West) Mumbai 400067 Maharashtra India
+              </p>
+            </div>
+
+            <div class="cinfo">
+              <h5>Email Us At</h5>
+              <p>kevin@bombayhampers.com<br /></p>
+            </div>
+
+            <div class="cinfo">
+              <h5>Call Us At</h5>
+              <p>Phone: +91 9082102206<br /></p>
+            </div>
+            <div class="cinfo">
+              <h5>Timing</h5>
+              <p>Monday to Sunday (10: 00 am - 10 pm)</p>
+            </div>
+
+            <ul class="contact-social">
+              <li>
+                <a
+                  href="https://www.facebook.com/share/17D5HkZnkh/?mibextid=wwXIfr"
+                  target="_blank"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+              </li>
+              <!-- <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li> -->
+              <li>
+                <a
+                  href="https://www.instagram.com/bombayhampers?igsh=MXFpMnY0MHdpa3Jwcg"
+                  target="_blank"
+                >
+                  <i class="fa fa-instagram"></i
+                ></a>
+              </li>
+
+              <li>
+                <a
+                  href="https://wa.me/+919082102206"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa fa-whatsapp"></i>
+                </a>
+              </li>
+             
+            </ul>
+
+               </div>
+               <div class="col-six">
+                <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.736810947236!2d72.83856877472843!3d19.204444982011303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0f7f7b6cd8f%3A0x66f63c94a3a9e9cf!2sBombay%20Hampers!5e0!3m2!1sen!2sin!4v1737480400000!5m2!1sen!2sin" 
+  width="100%" 
+  height="500" 
+  style="border:0; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.12);" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+               </div>
+          
+            <!-- end contact-social -->
+          </div>
+          <!-- end contact-info -->
+        </div>
+        <!-- end contact-secondary -->
+      </div>
+      <!-- end contact-content -->
+    </section>
+    <!-- end s-contact -->
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+      <!-- end footer-main -->
+
+      <div class="row footer-bottom">
+        <div class="col-twelve">
+          <div class="copyright">
+            <span>© Copyright Bombay Hampers 2025</span>
+          </div>
+
+          <div class="go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top"
+              ><i class="icon-arrow-up" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- end footer-bottom -->
+    </footer>
+    <!-- end footer -->
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button
+              class="pswp__button pswp__button--close"
+              title="Close (Esc)"
+            ></button>
+            <button
+              class="pswp__button pswp__button--share"
+              title="Share"
+            ></button>
+            <button
+              class="pswp__button pswp__button--fs"
+              title="Toggle fullscreen"
+            ></button>
+            <button
+              class="pswp__button pswp__button--zoom"
+              title="Zoom in/out"
+            ></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
+          >
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button
+            class="pswp__button pswp__button--arrow--left"
+            title="Previous (arrow left)"
+          ></button>
+          <button
+            class="pswp__button pswp__button--arrow--right"
+            title="Next (arrow right)"
+          ></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end photoSwipe background -->
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+      <div id="loader">
+        <i class="fa fa-gift gift-loader"></i>
+      </div>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      (function () {
+        // Guard for browsers without IntersectionObserver
+        if (!("IntersectionObserver" in window)) return;
+
+        // Collect all subhead elements to animate
+        var subs = Array.prototype.slice.call(
+          document.querySelectorAll(".subhead")
+        );
+        if (!subs.length) return;
+
+        // Prepare each subhead: stash text, clear it for typing later
+        subs.forEach(function (el) {
+          if (el.dataset.twtPrepared) return;
+          el.dataset.fullText = el.textContent.trim();
+          el.textContent = "";
+          el.dataset.twtPrepared = "1";
+        });
+
+        // Type a single element
+        function typeIt(el) {
+          if (el.dataset.twtDone) return; // already typed
+          el.classList.add("typewriter");
+          var txt = el.dataset.fullText || "";
+          var i = 0;
+          var speed = 30; // ms per char
+
+          // Faster on desktop, a bit slower on mobile for readability
+          if (
+            window.matchMedia &&
+            window.matchMedia("(max-width: 600px)").matches
+          )
+            speed = 40;
+
+          // Respect reduced motion: instantly reveal
+          var reduce =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (reduce) {
+            el.textContent = txt;
+            el.dataset.twtDone = "1";
+            return;
+          }
+
+          var timer = setInterval(function () {
+            el.textContent = txt.slice(0, i++);
+            if (i > txt.length) {
+              clearInterval(timer);
+              el.dataset.twtDone = "1";
+              // keep caret for subtle effect; remove after a short delay if desired
+              setTimeout(function () {
+                el.classList.remove("typewriter");
+              }, 1900);
+            }
+          }, speed);
+        }
+
+        // Observe when the parent section enters view
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var section = entry.target;
+              // Find subheads inside this section that aren't done
+              section.querySelectorAll(".subhead").forEach(typeIt);
+              io.unobserve(section); // animate once per section
+            });
+          },
+          { threshold: 0.25 }
+        );
+
+        // Observe each distinct section that contains a .subhead
+        var sections = new Set();
+        subs.forEach(function (el) {
+          var sec = el.closest("section") || document.body;
+          if (sec && !sections.has(sec)) {
+            sections.add(sec);
+            io.observe(sec);
+          }
+        });
+      })();
+      // Read more / Read less toggle for About section
+      (function () {
+        var p = document.querySelector("#about .about-desc p");
+        var btn = document.getElementById("about-toggle");
+        if (!p || !btn) return;
+        // If there's no extra content span, do nothing
+        if (!p.querySelector(".about-more")) return;
+
+        function updateAria() {
+          var expanded = p.classList.contains("about-expanded");
+          btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+          btn.textContent = expanded ? "Read less" : "Read more";
+        }
+
+        btn.addEventListener("click", function () {
+          p.classList.toggle("about-expanded");
+          updateAria();
+        });
+
+        // init state
+        updateAria();
+      })();
+      // Clients: simple image carousel (right side)
+      (function () {
+        var root = document.querySelector("#clients .testi-carousel");
+        if (!root) return;
+        var slides = [].slice.call(root.querySelectorAll(".slide"));
+        var dots = [].slice.call(root.querySelectorAll(".testi-dot"));
+        var prev = root.querySelector(".testi-arrow.prev");
+        var next = root.querySelector(".testi-arrow.next");
+        var i = 0,
+          n = slides.length,
+          timer,
+          interval = 4000;
+
+        function show(idx) {
+          i = (idx + n) % n;
+          slides.forEach(function (s, k) {
+            s.classList.toggle("is-active", k === i);
+          });
+          dots.forEach(function (d, k) {
+            d.classList.toggle("is-active", k === i);
+          });
+        }
+        function go(step) {
+          show(i + step);
+        }
+
+        // autoplay with pause on hover/focus
+        function play() {
+          stop();
+          timer = setInterval(function () {
+            go(1);
+          }, interval);
+        }
+        function stop() {
+          if (timer) clearInterval(timer);
+        }
+
+        // wire controls
+        if (prev)
+          prev.addEventListener("click", function () {
+            stop();
+            go(-1);
+            play();
+          });
+        if (next)
+          next.addEventListener("click", function () {
+            stop();
+            go(1);
+            play();
+          });
+        dots.forEach(function (d, k) {
+          d.addEventListener("click", function () {
+            stop();
+            show(k);
+            play();
+          });
+        });
+
+        root.addEventListener("mouseenter", stop);
+        root.addEventListener("mouseleave", play);
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", play);
+
+        // init
+        show(0);
+        play();
+
+        // respect reduced motion
+        var reduce =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (reduce && reduce.matches) stop();
+      })();
+    </script>
+  </body>
+</html>
